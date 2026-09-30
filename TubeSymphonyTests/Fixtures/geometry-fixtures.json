@@ -1,0 +1,422 @@
+[
+ {
+  "line": "bakerloo",
+  "route": "harrow-elephant",
+  "dist": 384.127,
+  "lng": -0.330353530614983,
+  "lat": 51.58977975231158
+ },
+ {
+  "line": "metropolitan",
+  "route": "aldgate-chesham",
+  "dist": 30235.346,
+  "lng": -0.4278915029557761,
+  "lat": 51.6236891886012
+ },
+ {
+  "line": "weaver",
+  "route": "livst-chingford",
+  "dist": 1880.575,
+  "lng": -0.05917482082244048,
+  "lat": 51.52395238586555
+ },
+ {
+  "line": "liberty",
+  "route": "romford-upminster",
+  "dist": 2933.454,
+  "lng": 0.2205663466832604,
+  "lat": 51.5684951753803
+ },
+ {
+  "line": "mildmay",
+  "route": "richmond-stratford",
+  "dist": 21969.895,
+  "lng": -0.08772019315781916,
+  "lat": 51.54900311510451
+ },
+ {
+  "line": "central",
+  "route": "ealing-hainault",
+  "dist": 27718.987,
+  "lng": 0.010020816715428134,
+  "lat": 51.57007167143755
+ },
+ {
+  "line": "windrush",
+  "route": "dalston-newcross",
+  "dist": 689.826,
+  "lng": -0.07544998751664901,
+  "lat": 51.539637176261714
+ },
+ {
+  "line": "northern",
+  "route": "high-barnet-kennington-cx",
+  "dist": 9997.289,
+  "lng": -0.14865483280466724,
+  "lat": 51.57925776946673
+ },
+ {
+  "line": "elizabeth",
+  "route": "heathrow-t4-abbeywood",
+  "dist": 47100.047,
+  "lng": 0.0918805566729578,
+  "lat": 51.49039843596396
+ },
+ {
+  "line": "elizabeth",
+  "route": "heathrow-t5-abbeywood",
+  "dist": 46487.931,
+  "lng": 0.08731208769341943,
+  "lat": 51.49067352689031
+ },
+ {
+  "line": "windrush",
+  "route": "dalston-clapham",
+  "dist": 12266.138,
+  "lng": -0.09407664328032045,
+  "lat": 51.46670896035197
+ },
+ {
+  "line": "elizabeth",
+  "route": "paddington-shenfield",
+  "dist": 20123.025,
+  "lng": 0.0761021294053715,
+  "lat": 51.56052673466911
+ },
+ {
+  "line": "dlr",
+  "route": "bank-woolwich",
+  "dist": 6038.011,
+  "lng": -0.005314476454228573,
+  "lat": 51.50836687656072
+ },
+ {
+  "line": "northern",
+  "route": "mill-hill-morden-bank",
+  "dist": 4927.909,
+  "lng": -0.1535923714102846,
+  "lat": 51.58142036670552
+ },
+ {
+  "line": "central",
+  "route": "hainault-west-ruislip",
+  "dist": 40312.002,
+  "lng": -0.3470815803277624,
+  "lat": 51.54268607403868
+ },
+ {
+  "line": "dlr",
+  "route": "canning-beckton",
+  "dist": 43.402,
+  "lng": 0.008618111568245244,
+  "lat": 51.51361933221223
+ },
+ {
+  "line": "jubilee",
+  "route": "west-hampstead-stratford",
+  "dist": 6662.135,
+  "lng": -0.14867516983089177,
+  "lat": 51.50886375653703
+ },
+ {
+  "line": "metropolitan",
+  "route": "watford-harrow",
+  "dist": 13665.111,
+  "lng": -0.34489309688620823,
+  "lat": 51.579895877942334
+ },
+ {
+  "line": "bakerloo",
+  "route": "stonebridge-elephant",
+  "dist": 12595.597,
+  "lng": -0.13918065966526094,
+  "lat": 51.51147701575604
+ },
+ {
+  "line": "dlr",
+  "route": "tower-beckton",
+  "dist": 3964.996,
+  "lng": -0.018247230126737346,
+  "lat": 51.50781368866441
+ },
+ {
+  "line": "windrush",
+  "route": "highbury-westcroydon",
+  "dist": 12866.804,
+  "lng": -0.038140963045175946,
+  "lat": 51.462032420160625
+ },
+ {
+  "line": "northern",
+  "route": "mill-hill-battersea-cx",
+  "dist": 13093.522,
+  "lng": -0.13106736170428884,
+  "lat": 51.517302708312684
+ },
+ {
+  "line": "northern",
+  "route": "edgware-morden-bank",
+  "dist": 5575.556,
+  "lng": -0.21910212876928112,
+  "lat": 51.57896002209898
+ },
+ {
+  "line": "weaver",
+  "route": "livst-cheshunt",
+  "dist": 17967.956,
+  "lng": -0.04975207146895341,
+  "lat": 51.65863819151501
+ },
+ {
+  "line": "jubilee",
+  "route": "willesden-stratford",
+  "dist": 18126.149,
+  "lng": -0.025703165144401484,
+  "lat": 51.50407679446338
+ },
+ {
+  "line": "dlr",
+  "route": "stratford-lewisham",
+  "dist": 7837.454,
+  "lng": -0.01007737091307603,
+  "lat": 51.48602535491711
+ },
+ {
+  "line": "metropolitan",
+  "route": "amersham-baker",
+  "dist": 29096.873,
+  "lng": -0.2608545478774171,
+  "lat": 51.557125034458586
+ },
+ {
+  "line": "jubilee",
+  "route": "stanmore-stratford",
+  "dist": 7552.275,
+  "lng": -0.2767595246338756,
+  "lat": 51.562652109694575
+ },
+ {
+  "line": "jubilee",
+  "route": "willesden-stratford",
+  "dist": 16781.928,
+  "lng": -0.04343438195391928,
+  "lat": 51.49932569703239
+ },
+ {
+  "line": "metropolitan",
+  "route": "aldgate-uxbridge",
+  "dist": 28572.305,
+  "lng": -0.43160459334025125,
+  "lat": 51.56751386798818
+ },
+ {
+  "line": "elizabeth",
+  "route": "heathrow-t4-abbeywood",
+  "dist": 45437.051,
+  "lng": 0.06887717454796032,
+  "lat": 51.49299199442277
+ },
+ {
+  "line": "northern",
+  "route": "high-barnet-east-finchley",
+  "dist": 1223.607,
+  "lng": -0.18515899445915596,
+  "lat": 51.64141886940678
+ },
+ {
+  "line": "northern",
+  "route": "mill-hill-morden-cx",
+  "dist": 10165.164,
+  "lng": -0.1426817935595499,
+  "lat": 51.53929312650473
+ },
+ {
+  "line": "dlr",
+  "route": "stratford-int-beckton",
+  "dist": 8410.168,
+  "lng": 0.06004985396922358,
+  "lat": 51.50857853514788
+ },
+ {
+  "line": "piccadilly",
+  "route": "cockfosters-heathrow-t4",
+  "dist": 16424.259,
+  "lng": -0.1247471019314856,
+  "lat": 51.529273325418835
+ },
+ {
+  "line": "central",
+  "route": "epping-loughton",
+  "dist": 3183.61,
+  "lng": 0.10109706330029718,
+  "lat": 51.66617019303112
+ },
+ {
+  "line": "victoria",
+  "route": "main",
+  "dist": 14792.277,
+  "lng": -0.14291337407873014,
+  "lat": 51.50574493313702
+ },
+ {
+  "line": "metropolitan",
+  "route": "aldgate-amersham",
+  "dist": 11074.438,
+  "lng": -0.19794107791333249,
+  "lat": 51.54635827847445
+ },
+ {
+  "line": "elizabeth",
+  "route": "heathrow-t4-abbeywood",
+  "dist": 42705.826,
+  "lng": 0.039317063298178294,
+  "lat": 51.50665948224453
+ },
+ {
+  "line": "piccadilly",
+  "route": "arnos-rayners",
+  "dist": 13750.027,
+  "lng": -0.13004849200384205,
+  "lat": 51.51084202657339
+ },
+ {
+  "line": "piccadilly",
+  "route": "heathrow-t5-kings-cross",
+  "dist": 21726.211,
+  "lng": -0.2177474425158003,
+  "lat": 51.49010214809703
+ },
+ {
+  "line": "metropolitan",
+  "route": "baker-watford",
+  "dist": 26266.242,
+  "lng": -0.44967581220436387,
+  "lat": 51.64120103591925
+ },
+ {
+  "line": "northern",
+  "route": "edgware-morden-cx",
+  "dist": 29335.127,
+  "lng": -0.17828152209531176,
+  "lat": 51.41800737859882
+ },
+ {
+  "line": "elizabeth",
+  "route": "reading-abbeywood",
+  "dist": 62876.119,
+  "lng": -0.1058674296797353,
+  "lat": 51.52030681240631
+ },
+ {
+  "line": "piccadilly",
+  "route": "cockfosters-northfields",
+  "dist": 3221.448,
+  "lng": -0.12812668740873276,
+  "lat": 51.63208582483737
+ },
+ {
+  "line": "northern",
+  "route": "edgware-morden-bank",
+  "dist": 21127.097,
+  "lng": -0.09548865315361864,
+  "lat": 51.49989310930544
+ },
+ {
+  "line": "central",
+  "route": "ealing-loughton",
+  "dist": 21034.815,
+  "lng": -0.03710761758308967,
+  "lat": 51.525126320631884
+ },
+ {
+  "line": "victoria",
+  "route": "walthamstow-seven-sisters",
+  "dist": 360.118,
+  "lng": -0.024838908274920492,
+  "lat": 51.58397080524537
+ },
+ {
+  "line": "district",
+  "route": "olympia-edgware",
+  "dist": 4753.657,
+  "lng": -0.18253384406103618,
+  "lat": 51.513721873335115
+ },
+ {
+  "line": "northern",
+  "route": "battersea-golders-green-cx",
+  "dist": 5732.66,
+  "lng": -0.12579048078496108,
+  "lat": 51.50822868042425
+ },
+ {
+  "line": "district",
+  "route": "upminster-ealing",
+  "dist": 12112.476,
+  "lng": 0.08157150878403914,
+  "lat": 51.539414878246504
+ },
+ {
+  "line": "victoria",
+  "route": "brixton-seven-sisters",
+  "dist": 6481.062,
+  "lng": -0.14219119662706842,
+  "lat": 51.51316882719522
+ },
+ {
+  "line": "northern",
+  "route": "mill-hill-finchley-central",
+  "dist": 1043.735,
+  "lng": -0.19747642677766575,
+  "lat": 51.6029620373431
+ },
+ {
+  "line": "central",
+  "route": "hainault-west-ruislip",
+  "dist": 34883.666,
+  "lng": -0.27314474112298937,
+  "lat": 51.526516202056996
+ },
+ {
+  "line": "piccadilly",
+  "route": "heathrow-t4-kings-cross",
+  "dist": 18135.753,
+  "lng": -0.2781331490380543,
+  "lat": 51.50066993734233
+ },
+ {
+  "line": "district",
+  "route": "wimbledon-barking",
+  "dist": 27518.873,
+  "lng": 0.04421006279452532,
+  "lat": 51.53734678525851
+ },
+ {
+  "line": "elizabeth",
+  "route": "heathrow-t4-abbeywood",
+  "dist": 10065.371,
+  "lng": -0.40318462717940534,
+  "lat": 51.5029706202846
+ },
+ {
+  "line": "northern",
+  "route": "mill-hill-morden-cx",
+  "dist": 23828.44,
+  "lng": -0.15690315557166232,
+  "lat": 51.43767722350083
+ },
+ {
+  "line": "windrush",
+  "route": "dalston-clapham",
+  "dist": 68.333,
+  "lng": -0.07514986119826007,
+  "lat": 51.54521441147475
+ },
+ {
+  "line": "northern",
+  "route": "high-barnet-morden-cx",
+  "dist": 738.573,
+  "lng": -0.18785192833836908,
+  "lat": 51.64544772675322
+ }
+]

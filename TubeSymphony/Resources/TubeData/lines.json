@@ -1,0 +1,344 @@
+[
+ {
+  "key": "bakerloo",
+  "name": "Bakerloo",
+  "color": "#b26300",
+  "glowColor": "#b26300",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "central",
+  "name": "Central",
+  "color": "#dc241f",
+  "glowColor": "#dc241f",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "circle",
+  "name": "Circle",
+  "color": "#ffd300",
+  "glowColor": "#ffd300",
+  "centerStripe": false,
+  "trainTemplate": "sub-surface",
+  "trackLevel": "sub-surface",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 27,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 29,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "district",
+  "name": "District",
+  "color": "#007d32",
+  "glowColor": "#007d32",
+  "centerStripe": false,
+  "trainTemplate": "sub-surface",
+  "trackLevel": "sub-surface",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 27,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 29,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "dlr",
+  "name": "DLR",
+  "color": "#00afad",
+  "glowColor": "#00afad",
+  "centerStripe": true,
+  "trainTemplate": "dlr",
+  "trackLevel": "rail-elevated",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 18,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 20,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "elizabeth",
+  "name": "Elizabeth line",
+  "color": "#6950a1",
+  "glowColor": "#6950a1",
+  "centerStripe": true,
+  "trainTemplate": "elizabeth",
+  "trackLevel": "deep-level-lowest",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 36,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 38,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "hammersmith-city",
+  "name": "Hammersmith & City",
+  "color": "#f4a9be",
+  "glowColor": "#f4a9be",
+  "centerStripe": false,
+  "trainTemplate": "sub-surface",
+  "trackLevel": "sub-surface",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 27,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 29,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "jubilee",
+  "name": "Jubilee",
+  "color": "#838d93",
+  "glowColor": "#ffffff",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "liberty",
+  "name": "Liberty line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "lioness",
+  "name": "Lioness line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground-high",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "metropolitan",
+  "name": "Metropolitan",
+  "color": "#9b0058",
+  "glowColor": "#9b0058",
+  "centerStripe": false,
+  "trainTemplate": "sub-surface",
+  "trackLevel": "sub-surface",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 27,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 29,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "mildmay",
+  "name": "Mildmay line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "northern",
+  "name": "Northern",
+  "color": "#000000",
+  "glowColor": "#ffffff",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "piccadilly",
+  "name": "Piccadilly",
+  "color": "#0019a8",
+  "glowColor": "#0019a8",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "suffragette",
+  "name": "Suffragette line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "victoria",
+  "name": "Victoria",
+  "color": "#039be5",
+  "glowColor": "#039be5",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level-lower",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "waterloo-city",
+  "name": "Waterloo & City",
+  "color": "#76d0bd",
+  "glowColor": "#76d0bd",
+  "centerStripe": false,
+  "trainTemplate": "deep",
+  "trackLevel": "deep-level",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 24,
+   "bodyH": 8,
+   "borderW": 1,
+   "outerW": 26,
+   "outerH": 10,
+   "gapPx": 2
+  }
+ },
+ {
+  "key": "weaver",
+  "name": "Weaver line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ },
+ {
+  "key": "windrush",
+  "name": "Windrush line",
+  "color": "#fa7b05",
+  "glowColor": "#fa7b05",
+  "centerStripe": true,
+  "trainTemplate": "overground",
+  "trackLevel": "overground",
+  "carriageCount": 3,
+  "carriage": {
+   "bodyW": 31.5,
+   "bodyH": 10,
+   "borderW": 1,
+   "outerW": 33.5,
+   "outerH": 12,
+   "gapPx": 2.2
+  }
+ }
+]

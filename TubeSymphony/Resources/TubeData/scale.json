@@ -1,0 +1,44 @@
+{
+ "refZoom": 14,
+ "exponentIn": 0.5,
+ "exponentOut": 0.46,
+ "maxZoom": 17,
+ "mapMaxZoom": 20,
+ "train2dScale": 0.9,
+ "trainZoomOutShrink": 0.42,
+ "deepCarriageWidthPx": 24,
+ "blipRetain": 0.2,
+ "blipShrink": 0,
+ "blipRippleDiameterPx": 200,
+ "blipRippleBorderPx": 18,
+ "trackGlowOpacity": 0.75,
+ "view": {
+  "startCenter": [
+   -0.13443,
+   51.504646
+  ],
+  "startZoom": 10.85,
+  "minZoom": 7.56,
+  "maxViewport": {
+   "sw": [
+    -0.919293,
+    50.701116
+   ],
+   "ne": [
+    0.558167,
+    52.336254
+   ]
+  },
+  "overviewCenter": [
+   -0.180563,
+   51.521946
+  ],
+  "lineWidthCore": 4.5,
+  "lineWidthCasing": 6,
+  "trackGlowWidth": 13.5,
+  "trackGlowBlur": 4.5,
+  "stationDotSizePx": 15,
+  "stationDotBorderPx": 2.5,
+  "stationLabelFontSizePx": 6
+ }
+}

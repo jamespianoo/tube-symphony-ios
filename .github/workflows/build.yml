@@ -1,0 +1,57 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate the Xcode project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+
+      - name: Pick an iPhone simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c "
+          import json, sys
+          devs = json.load(sys.stdin)['devices']
+          for runtime in sorted(devs, reverse=True):
+              if 'iOS' not in runtime: continue
+              for d in devs[runtime]:
+                  if d['name'].startswith('iPhone'):
+                      print(d['udid']); sys.exit(0)
+          sys.exit(1)")
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: Build and run the tests
+        run: |
+          set +e
+          xcodebuild test \
+            -project TubeSymphony.xcodeproj \
+            -scheme TubeSymphony \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO > xcodebuild.log 2>&1
+          status=$?
+          # The useful part of the log: compiler errors, test results, the verdict.
+          grep -E "error:|warning: .*TubeSymphony/|Test Case .*(passed|failed)|Executed|\*\* (BUILD|TEST)" xcodebuild.log | sort -u | tail -150
+          exit $status
+
+      - name: Keep the log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-log
+          path: xcodebuild.log

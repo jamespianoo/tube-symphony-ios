@@ -1,0 +1,7 @@
+{
+  "name": "export-tube-data",
+  "private": true,
+  "description": "Exports Tube Symphony's route geometry and look into the iOS app's bundled data",
+  "scripts": { "export": "node export.js" },
+  "dependencies": { "jsdom": "^29.1.1" }
+}
