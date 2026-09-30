@@ -10,7 +10,7 @@
 // result. The phone then does nothing at boot but read a few files.
 //
 //   npm install
-//   node export.js --app-root ../../../labs-tube-map
+//   node export.js --app-root ../../../tube-symphony
 //
 // Writes to ../../TubeSymphony/Resources/TubeData/ (override with --out):
 //   lines.json     line colours, names, carriage sizes
@@ -30,7 +30,10 @@ const http = require('http');
 const Module = require('module');
 
 const arg = (n, d) => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : d; };
-const APP_ROOT = path.resolve(arg('app-root', path.join(__dirname, '../../../labs-tube-map')));
+// Default: a checkout of the website beside this repo (tube-symphony, formerly labs-tube-map).
+const APP_ROOT = path.resolve(arg('app-root', ['tube-symphony', 'labs-tube-map']
+    .map((d) => path.join(__dirname, '../../..', d))
+    .find((d) => fs.existsSync(path.join(d, 'services/schedule/sim-host.js'))) || path.join(__dirname, '../../../tube-symphony')));
 const OUT = path.resolve(arg('out', path.join(__dirname, '../../TubeSymphony/Resources/TubeData')));
 const ORIGIN = arg('origin', 'https://tubesymphony.com');
 // Simplification tolerance for the route curves, metres. The website's curves

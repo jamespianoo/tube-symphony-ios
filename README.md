@@ -60,7 +60,7 @@ Re-export whenever lines, stations or waypoints change on the website:
 ```bash
 cd tools/export-tube-data
 npm install
-node export.js --app-root ../../../labs-tube-map
+node export.js --app-root ../../../tube-symphony   # the website's repo, checked out beside this one
 ```
 
 The exporter runs the website's own scripts headless, the same way `services/schedule/sim-host.js` does, and writes down the results.
