@@ -95,6 +95,9 @@ final class StreamPlayer {
 
     func pause() {
         player.pause()
+        // A live stream resumed from its old buffer would be minutes behind London;
+        // drop the item so play() starts at the live edge, and nothing downloads meanwhile.
+        player.replaceCurrentItem(with: nil)
         isPlaying = false
         clockBase = nil
         clockState = lastLocked == nil ? .idle : .coasting
@@ -131,7 +134,7 @@ final class StreamPlayer {
     private func handleInterruption(_ info: [AnyHashable: Any]?) {
         guard let raw = info?[AVAudioSessionInterruptionTypeKey] as? UInt,
               let type = AVAudioSession.InterruptionType(rawValue: raw) else { return }
-        if type == .began { isPlaying = false; clockBase = nil; stopTimers() }
+        if type == .began { pause() }
         else if let o = info?[AVAudioSessionInterruptionOptionKey] as? UInt,
                 AVAudioSession.InterruptionOptions(rawValue: o).contains(.shouldResume) { play() }
     }

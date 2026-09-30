@@ -9,7 +9,9 @@ struct MapScreen: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             if let data = model.data {
-                TubeMapView(model: model, data: data, active: visible && scenePhase == .active)
+                TubeMapView(model: model, data: data, active: visible && scenePhase == .active,
+                            showNames: model.settings.showStationNames, showBlips: model.settings.showBlips,
+                            smooth: model.settings.smoothMotion)
                     .ignoresSafeArea(edges: .top)
             } else if let err = model.loadError {
                 ContentUnavailableView("The map data didn't load", systemImage: "exclamationmark.triangle", description: Text(err))
@@ -42,6 +44,10 @@ struct TubeMapView: UIViewRepresentable {
     let model: AppModel
     let data: TubeData
     let active: Bool
+    // Passed in (rather than read inside updateUIView) so a change re-runs updateUIView.
+    let showNames: Bool
+    let showBlips: Bool
+    let smooth: Bool
 
     func makeCoordinator() -> MapController { MapController(model: model, data: data) }
     func makeUIView(context: Context) -> MLNMapView { context.coordinator.makeMapView() }
