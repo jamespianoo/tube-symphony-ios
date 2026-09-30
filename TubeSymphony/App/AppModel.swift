@@ -12,6 +12,7 @@ final class AppModel {
     let player = StreamPlayer()
     let settings = AppSettings()
     let lineStatus = LineStatusStore()
+    var tab: AppTab = .map
 
     @ObservationIgnored let fleet = FleetModel()
     @ObservationIgnored private let feed = ScheduleFeed()
@@ -74,12 +75,20 @@ final class AppSettings {
     var showDiagnostics: Bool { didSet { save() } }
 
     private let d = UserDefaults.standard
+    private static let defaults: [String: Bool] = ["showStationNames": true, "showBlips": true, "smoothMotion": false, "showDiagnostics": false]
     init() {
-        d.register(defaults: ["showStationNames": true, "showBlips": true, "smoothMotion": false, "showDiagnostics": false])
+        d.register(defaults: Self.defaults)
         showStationNames = d.bool(forKey: "showStationNames")
         showBlips = d.bool(forKey: "showBlips")
         smoothMotion = d.bool(forKey: "smoothMotion")
         showDiagnostics = d.bool(forKey: "showDiagnostics")
+    }
+    /// The drawer's "Reset To Defaults".
+    func reset() {
+        showStationNames = Self.defaults["showStationNames"]!
+        showBlips = Self.defaults["showBlips"]!
+        smoothMotion = Self.defaults["smoothMotion"]!
+        showDiagnostics = Self.defaults["showDiagnostics"]!
     }
     private func save() {
         d.set(showStationNames, forKey: "showStationNames")

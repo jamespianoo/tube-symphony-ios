@@ -234,12 +234,12 @@ final class StreamPlayer {
 
     private func startTimers() {
         guard timers.isEmpty else { return }
-        let add = { (interval: TimeInterval, body: @escaping @MainActor (StreamPlayer) async -> Void) in
+        let add = { [weak self] (interval: TimeInterval, body: @escaping @MainActor (StreamPlayer) async -> Void) in
             let t = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
                 Task { @MainActor in if let self { await body(self) } }
             }
             t.tolerance = interval * 0.1
-            self.timers.append(t)
+            self?.timers.append(t)
         }
         add(0.5) { $0.updateClock() }
         add(1.5) { await $0.pollEdge() }

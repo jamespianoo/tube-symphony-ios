@@ -50,6 +50,11 @@ targets:
         UIUserInterfaceStyle: Dark
         ITSAppUsesNonExemptEncryption: false
         LSApplicationQueriesSchemes: [youtube]
+        UIAppFonts:
+          - ChicagoFLF.ttf
+          - Fraunces-600.ttf
+          - RobotoMono-400.ttf
+          - RobotoMono-700.ttf
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jamesbeckwith.tubesymphony

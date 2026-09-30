@@ -23,6 +23,8 @@ enum AppConfig {
     static func anchorURL(_ r: Rendition) -> URL { origin.appending(path: "map-assets/hls/\(r.rawValue)/anchor.json") }
 
     static var statusURL: URL { origin.appending(path: "api/status.php") }
+    /// TfL's open API, for when the site's own status is out of reach.
+    static let tflStatusURL = URL(string: "https://api.tfl.gov.uk/Line/Mode/tube,dlr,elizabeth-line,overground/Status")!
     static var audioOnlyURL: URL { origin.appending(path: "audio/") }
 
     /// The YouTube broadcast. The website reads this from config/youtube.php on the

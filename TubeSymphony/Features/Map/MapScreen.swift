@@ -14,26 +14,31 @@ struct MapScreen: View {
                             smooth: model.settings.smoothMotion)
                     .ignoresSafeArea(edges: .top)
             } else if let err = model.loadError {
-                ContentUnavailableView("The map data didn't load", systemImage: "exclamationmark.triangle", description: Text(err))
+                MacWindow(title: "Tube Symphony", subtitle: "The map didn't load") {
+                    Text(err).macType(.hero).foregroundStyle(Mac.dim)
+                }
+                .padding(16)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Mac.desk)
             } else {
-                ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("LaunchBackground"))
+                Text("Loading…").macType(.status).foregroundStyle(Mac.dim)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity).background(Mac.desk)
             }
 
-            VStack(spacing: 10) {
+            VStack(spacing: 12) {
                 HStack {
                     Spacer()
                     Button { model.mapBridge.controller?.recenter() } label: {
-                        Image(systemName: "scope").font(.system(size: 17, weight: .semibold)).frame(width: 40, height: 40)
+                        Image(systemName: "scope").font(.system(size: 18, weight: .semibold)).frame(width: Mac.btn, height: Mac.btn)
                     }
-                    .buttonStyle(.plain)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    .buttonStyle(.mac(padding: 0))
                     .accessibilityLabel("Show the whole network")
                 }
                 if model.settings.showDiagnostics { DiagnosticsCard() }
                 MiniPlayer()
             }
             .padding(.horizontal, 12)
-            .padding(.bottom, 10)
+            .padding(.bottom, 12)
         }
         .onAppear { visible = true; model.mapDidAppear() }
         .onDisappear { visible = false; model.mapDidDisappear() }
@@ -58,7 +63,7 @@ struct TubeMapView: UIViewRepresentable {
     static func dismantleUIView(_ view: MLNMapView, coordinator: MapController) { coordinator.teardown() }
 }
 
-/// Play/pause and the rendition, floating over the map.
+/// Play/pause and the rendition, floating over the map: a small dark window.
 struct MiniPlayer: View {
     @Environment(AppModel.self) private var model
 
@@ -66,31 +71,43 @@ struct MiniPlayer: View {
         let player = model.player
         HStack(spacing: 12) {
             Button { player.toggle() } label: {
-                Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
-                    .font(.system(size: 20, weight: .bold))
-                    .frame(width: 44, height: 44)
+                MacIcon.view(player.isPlaying ? .pause : .play, size: 22).frame(width: Mac.btn, height: Mac.btn)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.mac(on: player.isPlaying, minHeight: Mac.btn, padding: 0))
             .accessibilityLabel(player.isPlaying ? "Pause" : "Play")
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Tube Symphony").font(.subheadline.weight(.semibold))
-                Text(player.isPlaying ? (player.isBuffering ? "Buffering…" : "Live · \(KeySchedule.key().name)") : "Tap play to listen")
-                    .font(.caption).foregroundStyle(.secondary)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Tube Symphony").macType(.secHead).foregroundStyle(Mac.coral).lineLimit(1)
+                Text(status(player)).macType(.clockLabel).foregroundStyle(Mac.dim).lineLimit(1)
             }
-            Spacer()
-            Picker("Mix", selection: Bindable(player).rendition) {
-                ForEach(Rendition.allCases) { Text($0.title).tag($0) }
+            .minimumScaleFactor(0.8)
+            Spacer(minLength: 4)
+
+            HStack(spacing: 6) {
+                ForEach(Rendition.allCases) { r in
+                    Button { player.rendition = r } label: {
+                        Text(r.title).macType(.option).lineLimit(1)
+                    }
+                    .buttonStyle(.mac(on: player.rendition == r, minHeight: 30, padding: 8, lift: 1))
+                    .accessibilityAddTraits(player.rendition == r ? .isSelected : [])
+                }
             }
-            .pickerStyle(.segmented)
-            .frame(width: 140)
+            .accessibilityElement(children: .contain)
+            .accessibilityLabel("Mix")
         }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 6)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
+        .padding(10)
+        .background(Mac.face)
+        .macEdge(lift: 3)
+    }
+
+    private func status(_ p: StreamPlayer) -> String {
+        guard p.isPlaying else { return "Press play" }
+        return p.isBuffering ? "Buffering…" : "Live · \(KeySchedule.key().name)"
     }
 }
 
 /// What the clock and the loop are doing, for checking sync and cost on a device.
+/// Built like the site's tooltips: white, an ink edge, the value face.
 struct DiagnosticsCard: View {
     @Environment(AppModel.self) private var model
 
@@ -101,9 +118,12 @@ struct DiagnosticsCard: View {
             Text("drawing \(String(format: "%.1f", s.renderLagS)) s behind London  ·  feed \(s.snapshotAgeS.map { String(format: "%.1f s old", $0) } ?? "—")")
             Text("audio \(p.clockState.rawValue)  ·  locks \(p.lockCount)  ·  anchor \(p.anchorOffsetMs.map { "\(Int($0)) ms" } ?? "—")  ·  behind \(p.behindLiveSeconds.map { String(format: "%.1f s", $0) } ?? "—")")
         }
-        .font(.system(size: 10, design: .monospaced))
-        .padding(8)
+        .macType(.tooltip)
+        .foregroundStyle(Mac.cardInk)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 5)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.black.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
+        .background(Mac.rail)
+        .macEdge(.light)
     }
 }

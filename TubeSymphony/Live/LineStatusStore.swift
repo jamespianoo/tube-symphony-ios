@@ -1,8 +1,10 @@
 import Foundation
 import Observation
 
-/// TfL line status through the website's own cache (api/status.php →
-/// data/tfl-status.json.gz): per line, the worst current status.
+/// TfL line status: per line, the worst current status. First through the
+/// website's own cache (api/status.php → data/tfl-status.json.gz); while the site
+/// sits behind its password (it answers 401), straight from TfL's open API, whose
+/// line ids are the app's line keys.
 @MainActor
 @Observable
 final class LineStatusStore {
@@ -17,17 +19,27 @@ final class LineStatusStore {
     private(set) var statuses: [String: Status] = [:]
     private(set) var updated: Date?
     private(set) var error: String?
+    /// Where the last statuses came from, for the footnote.
+    private(set) var source = "TfL"
 
     func refresh() async {
-        do {
-            let (data, resp) = try await URLSession.shared.data(from: AppConfig.statusURL)
-            guard (resp as? HTTPURLResponse)?.statusCode == 200 else { error = "Line status is unavailable just now."; return }
-            statuses = Self.parse(data)
-            updated = Date()
-            error = nil
-        } catch {
-            self.error = "Couldn't reach the line status."
+        if let s = await fetch(AppConfig.statusURL, parse: Self.parse) {
+            statuses = s; source = "TfL via Tube Symphony"
+        } else if let s = await fetch(AppConfig.tflStatusURL, parse: Self.parseTfL) {
+            statuses = s; source = "TfL"
+        } else {
+            error = statuses.isEmpty ? "Line status is unavailable just now." : "Couldn't refresh the line status."
+            return
         }
+        updated = Date()
+        error = nil
+    }
+
+    private func fetch(_ url: URL, parse: (Data) -> [String: Status]) async -> [String: Status]? {
+        guard let (data, resp) = try? await URLSession.shared.data(from: url),
+              (resp as? HTTPURLResponse)?.statusCode == 200 else { return nil }
+        let s = parse(data)
+        return s.isEmpty ? nil : s
     }
 
     /// Accepts the slim map `{ lineId: { severity, desc, reason } }`, or the same
@@ -43,6 +55,24 @@ final class LineStatusStore {
         for (k, v) in obj {
             guard let d = v as? [String: Any], let sev = (d["severity"] as? NSNumber)?.intValue else { continue }
             out[k] = Status(severity: sev, desc: d["desc"] as? String ?? "", reason: d["reason"] as? String ?? "")
+        }
+        return out
+    }
+
+    /// TfL's `/Line/Mode/…/Status`: an array of lines, each with its statuses.
+    /// The first one that isn't good is the one shown (TfL lists the most
+    /// important first); otherwise the first.
+    nonisolated static func parseTfL(_ data: Data) -> [String: Status] {
+        struct Line: Decodable {
+            struct S: Decodable { let statusSeverity: Int; let statusSeverityDescription: String; let reason: String? }
+            let id: String
+            let lineStatuses: [S]
+        }
+        guard let lines = try? JSONDecoder().decode([Line].self, from: data) else { return [:] }
+        var out: [String: Status] = [:]
+        for l in lines {
+            let all = l.lineStatuses.map { Status(severity: $0.statusSeverity, desc: $0.statusSeverityDescription, reason: $0.reason ?? "") }
+            if let s = all.first(where: { !$0.isGood }) ?? all.first { out[l.id] = s }
         }
         return out
     }
